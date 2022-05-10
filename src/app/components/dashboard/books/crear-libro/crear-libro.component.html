@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="example-spacer"></span>
+        <span>Nuevo Libro</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+</div>
+<div class="cardcontainer">
+    <mat-card class="card">
+        <form [formGroup]="newbookform" (ngSubmit)="createBook()">
+            <mat-grid-list cols="4" rowHeight="75px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field appearance="fill" class="ancho">
+                        <mat-label>Titulo</mat-label>
+                        <input matInput autocomplete="off" formControlName="name">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="6" [style.background]="'lightgrey'">
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field appearance="fill" class="ancho">
+                        <mat-label>Autor</mat-label>
+                        <input matInput autocomplete="off" formControlName="author">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field appearance="fill" class="ancho">
+                        <mat-label>Elige la Categoria</mat-label>
+                        <mat-select formControlName="category">
+                          <mat-option *ngFor="let cat of category" [value]="cat.value">
+                            {{cat.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field appearance="fill" class="ancho">
+                        <mat-label>Editorial</mat-label>
+                        <input matInput autocomplete="off" formControlName="editorial">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="4" >
+                    <mat-form-field appearance="fill" class="anchoarea">
+                        <mat-label>Textarea</mat-label>
+                        <textarea matInput autocomplete="off" rows="10"  formControlName="sinopsys">                  
+                        </textarea>
+                      </mat-form-field>
+                </mat-grid-tile>
+                
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <button mat-raised-button color="primary">Anadir</button>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4" [rowspan]="1" >
+                    <button mat-button color="primary" style="margin-right: 5px;" routerLink="/dashboard/books">Volver</button>
+                    <button type="submit" [disabled]="newbookform.invalid" mat-raised-button color="primary">Guardar</button>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

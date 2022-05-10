@@ -1,0 +1,81 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="example-spacer"></span>
+        <span>Libros</span>
+        <span class="example-spacer"></span>
+        <button mat-stroked-button color="primary" routerLink="/dashboard/crear-libro">Nuevo Libro</button>
+
+    </mat-toolbar>
+</div>
+<div *ngIf="listaBooks.length >0">
+
+  <div class="container">
+    
+      <mat-form-field appearance="standard">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off">
+      </mat-form-field>
+  </div>
+
+  <div id="maintable" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Titulo Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulo</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          
+          <!-- Autor Column -->
+          <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Autor </th>
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+          </ng-container>
+        
+          <!-- Categoria Column -->
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+          </ng-container>
+        
+          <!-- Editorial Column -->
+          <ng-container matColumnDef="editorial">
+            <th mat-header-cell *matHeaderCellDef> Editorial </th>
+            <td mat-cell *matCellDef="let element"> {{element.editorial}} </td>
+          </ng-container>
+          <!--
+            let i = index lo estamos usando solo para recoger el indice del array, pero en 
+            realidad tendriamos que recoger el id del item para poder borrarl de la BBDD
+          -->
+          
+
+          <ng-container matColumnDef="actions">
+              <th class="actions" mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let element; let i=index">
+                  <a class="pointer" style="color:#c2c5cc" matTooltip="Info user"><mat-icon>search</mat-icon></a>
+                  <a class="pointer" style="color:#FFA500" matTooltip="Editar"><mat-icon>edit</mat-icon></a>
+                  <a class="pointer" (click)="deleteBook(i)" style="color:#e15639" matTooltip="Borrar "><mat-icon>delete</mat-icon></a>
+              </td>
+            </ng-container>
+    
+
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        
+        
+  </div>
+
+</div>
+      
+      
+<div *ngIf="listaBooks.length == 0">
+  <div class="nodata">
+    <h2>Upss..!! </h2>
+    <h1>No hay datos que mostrar</h1>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+.cardcontainer{
+    margin-top: 5%;
+}
+.ancho{
+    width: 90%;
+}
+.anchoarea{
+    width: 95%;
+}
+.user{
+    width: auto;
+    height: 100%;
+}

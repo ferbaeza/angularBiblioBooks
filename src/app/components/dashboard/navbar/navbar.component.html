@@ -1,0 +1,24 @@
+<p>
+    <mat-toolbar color="primary">
+      <span>My Application</span>
+      <span class="example-spacer"></span>
+      <button mat-flat-button color="primary" *ngFor="let i of menu" [routerLink]="i.redirect">{{i.nombre}}</button>
+      <span class="example-spacer"></span>
+      
+      <button mat-flat-button color="primary" routerLink="/dashboard">Dashborad</button>
+      <button mat-flat-button color="primary" routerLink="/dashboard/users">Usuarios</button>
+      <button mat-flat-button color="primary" routerLink="/dashboard/books">Books</button>
+      <!--
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    -->
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/logout">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+
+
+
+  

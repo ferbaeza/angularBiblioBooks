@@ -1,0 +1,33 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+table {
+  width: 100%;
+}
+.actions{
+  width: 15%;
+}
+th{
+  width: 20%;
+}
+.pointer{
+  cursor: pointer;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.container ,table{
+  width: 90%;
+  margin:0 auto;
+}
+#maintable{
+  width: 90%;
+  margin:0 auto;
+}
+.nodata{
+  margin: 0 auto;
+  color: #f58a58;
+  text-align: center;
+}

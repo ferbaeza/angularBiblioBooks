@@ -1,0 +1,59 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="example-spacer"></span>
+        <span>Nuevo Usuario</span>
+        <span class="example-spacer"></span>
+        
+    </mat-toolbar>
+    
+</div>
+<div class="cardcontainer">
+    <mat-card class="card">
+        <form [formGroup]="newuserform" (ngSubmit)="createUser()">
+            <mat-grid-list cols="4" rowHeight="75px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field  class="ancho">
+                        <mat-label>Username</mat-label>
+                        <input matInput autocomplete="off" formControlName="username">
+                    </mat-form-field>
+                </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="4" >
+                <img class="user" src="./assets/img/login.png">
+            </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput autocomplete="off" formControlName="name">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field  class="ancho">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput autocomplete="off" formControlName="surname">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <mat-form-field  class="ancho">
+                        <mat-label>Email</mat-label>
+                        <input matInput autocomplete="off" formControlName="email">
+                      </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field  class="ancho">
+                        <mat-label>Elige el rol del usuario</mat-label>
+                        <mat-select formControlName="role">
+                          <mat-option *ngFor="let rol of role" [value]="rol">
+                            {{rol}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2" [rowspan]="1" >
+                    <button mat-button color="primary" style="margin-right: 5px;" routerLink="/dashboard/users">Volver</button>
+                    <button type="submit"  [disabled]="newuserform.invalid" mat-raised-button color="primary">Guardar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

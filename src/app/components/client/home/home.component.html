@@ -1,0 +1,24 @@
+<div>
+</div>
+
+<div class="main">
+    <mat-grid-list cols="3" rowHeight="700">
+        <mat-grid-tile class="grid"*ngFor="let b of books">
+            <mat-card class="example-card">
+                <mat-card-title-group>
+                  <mat-card-title>{{b.name}}</mat-card-title>
+                  <mat-card-subtitle>{{b.author}}</mat-card-subtitle>
+                  <img mat-card-xl-image src="./assets/img/libro.png" >
+                </mat-card-title-group>
+                <mat-card-subtitle>{{b.category}}</mat-card-subtitle>
+                <mat-card-content>
+                    {{b.sinopsys}}
+                </mat-card-content>
+                <mat-card-subtitle>{{b.editorial}}</mat-card-subtitle>
+              </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    
+
+</div>

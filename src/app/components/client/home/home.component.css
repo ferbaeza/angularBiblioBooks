@@ -1,0 +1,15 @@
+mat-grid-tile {
+  margin-bottom: 10px;
+}
+mat-card {
+  margin-top: 50px;
+  margin-right: 50px;
+}
+.main{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.grid{
+  margin-right: 15px; 
+}
