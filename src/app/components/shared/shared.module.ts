@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
  import {MatCardModule} from '@angular/material/card';
  import {MatGridListModule} from '@angular/material/grid-list';
  import {MatSelectModule} from '@angular/material/select';
+ import {MatTabsModule} from '@angular/material/tabs';
  /**
   * Reactive Forms
   */
@@ -51,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatCardModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    
     
 
   ],
@@ -72,7 +75,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatCardModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
 
   ]
 })

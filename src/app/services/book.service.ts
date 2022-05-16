@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Books } from '../interfaces/books';
+import { Observable } from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +24,17 @@ export class BookService {
     {name:"Codigo da Vinci", author:"Dan Brown", category:"Suspense", editorial:"Otra", sinopsys: "Maecenas sit amet rhoncus sem, consequat interdum ligula. Maecenas at justo et mauris tempor consequat ut eget dui. Sed consequat, neque et laoreet imperdiet, arcu odio auctor urna, nec vestibulum dolor nibh in velit. In id interdum felis. Vestibulum sollicitudin tellus libero, at condimentum odio molestie ac. Cras facilisis aliquam justo cursus pharetra. Quisque mollis, nulla a consequat congue, justo tortor fermentum tellus, vitae tempus odio felis quis felis."}
   ];
 
+  constructor(private http:HttpClient) { }
+  nameToFind:string="";
 
-
-  constructor() { }
+  getDataTwo():Observable<any>{
+    return this.http.get("http://localhost:3000/api/books")
+  }
+  getData(){
+    this.http.get("http://localhost:3000/api/books").subscribe(data=>{
+     console.log(data);
+    })
+  }
 
   getBooks(){
     return this.listaBooks.slice();
@@ -32,13 +43,14 @@ export class BookService {
    * @slice nos devuelve una copia del array al que hace referencia
    * @splice lo que hace es borrar una cantidad de items de un array
    */
-
-
    deleteBook(index:number){
     this.listaBooks.splice(index,1);
    }
 
    createNewBook(newbook:Books){
      this.listaBooks.unshift(newbook);
+   }
+   findBook(req:string){
+     return this.listaBooks.find(req=>req)
    }
 }
